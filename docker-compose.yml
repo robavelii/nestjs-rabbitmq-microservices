@@ -4,7 +4,7 @@ services:
   orders:
     build: 
       context: .
-      dockerfile: ./apps/orders/DockerFile
+      dockerfile: ./apps/orders/Dockerfile
       target: development
     command: npm run start:dev orders
     env_file:
@@ -13,9 +13,9 @@ services:
       - mongodb-primary
       - mongodb-secondary
       - mongodb-arbiter
-    volumes:
+    volumes: 
       - .:/usr/src/app
-      - ./usr/src/app/node_modules
+      - /usr/src/app/node_modules
     ports:
       - '3000:3000'
 
